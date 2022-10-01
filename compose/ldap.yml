@@ -1,0 +1,19 @@
+version: '2.3'
+services:
+
+  openldap:
+    hostname: openldap
+    image: osixia/openldap:1.5.0
+    ports:
+       - "389" # insecure port - use if LDAP_TLS=false
+       #- "636" # secure port - use if LDAP_TLS=true
+    volumes:
+      - ../files/users.ldif:/container/service/slapd/assets/config/bootstrap/ldif/50-bootstrap.ldif
+#      - ../cluster/ldap-custom:/container/service/slapd/assets/config/bootstrap/ldif/custom
+#      - ../data/ldap2:/var/lib/ldap2
+    environment:
+      - LDAP_DOMAIN="angl.dev"
+      - LDAP_ADMIN_PASSWORD="admin"
+      - LDAP_TLS=false
+    command: ["--copy-service", "--loglevel", "debug"]
+

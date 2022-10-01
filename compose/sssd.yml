@@ -1,0 +1,10 @@
+version: "2.3"
+services:
+  sssd:
+    build:
+      context: ../files
+      dockerfile: sssd/Dockerfile
+    image: sssd
+    volumes:
+      - ../files/sssd/sssd.conf:/etc/sssd/sssd.conf
+    command: ["sssd", "-i"]

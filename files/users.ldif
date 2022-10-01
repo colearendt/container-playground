@@ -1,0 +1,69 @@
+version: 1
+
+## Entry 1: dc=angl,dc=dev
+#dn: dc=angl,dc=dev
+#dc: angl
+#o: Angl Dev
+#objectclass: top
+#objectclass: dcObject
+#objectclass: organization
+#
+## Entry 2: cn=admin,dc=angl,dc=dev
+#dn: cn=admin,dc=angl,dc=dev
+#cn: admin
+#description: LDAP administrator
+#objectclass: simpleSecurityObject
+#objectclass: organizationalRole
+#userpassword: {SSHA}+FquX8RcwTtBPo7mu2pgSvjaQYX9HpCL
+#
+#
+# Entry 3: cn=engineering_group,dc=angl,dc=dev
+dn: cn=engineering_group,dc=angl,dc=dev
+cn: engineering_group
+gidnumber: 500
+memberuid: joe
+memberuid: julie
+objectclass: posixGroup
+objectclass: top
+
+# Entry 4: dc=engineering,dc=angl,dc=dev
+dn: dc=engineering,dc=angl,dc=dev
+dc: engineering
+description: The Engineering Department
+o: Engineering
+objectclass: dcObject
+objectclass: organization
+objectclass: top
+
+
+# Entry 5: cn=joe,dc=engineering,dc=angl,dc=dev
+dn: cn=joe,dc=engineering,dc=angl,dc=dev
+cn: joe
+gidnumber: 500
+givenname: Joe
+homedirectory: /home/joe
+loginshell: /bin/sh
+mail: joe@angl.dev
+objectclass: inetOrgPerson
+objectclass: posixAccount
+objectclass: top
+sn: Golly
+uid: joe
+uidnumber: 1000
+userpassword: {MD5}j/MkifkvM0FmlL6P3C1MIg==
+
+# Entry 9: cn=julie,dc=engineering,dc=angl,dc=dev
+dn: cn=julie,dc=engineering,dc=angl,dc=dev
+cn: julie
+gidnumber: 500
+givenname: Julie
+homedirectory: /home/julie
+loginshell: /bin/sh
+mail: julie@angl.dev
+objectclass: inetOrgPerson
+objectclass: posixAccount
+objectclass: top
+sn: Jolly
+uid: julie
+uidnumber: 1001
+userpassword: {MD5}FvEvXoN54ivpleUF6/wbhA==
